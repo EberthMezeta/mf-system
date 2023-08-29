@@ -13,22 +13,15 @@ class FamilyManagement extends Component
     public $comments;
 
 
-    protected $rules = [
-        'name' => 'required|string|max:255',
-        'comments' => 'nullable|string',
-    ];
-
 
     public function createFamily(CreateFamilyUseCase $createFamilyUseCase)
     {
-        $this->validate();
 
         $data = [
-            'nombre' => $this->name,
-            'comentarios' => $this->comments,
+
         ];
 
-        $createFamilyUseCase->execute($data);
+        $createFamilyUseCase->create($data);
 
         $this->name = '';
         $this->comments = '';

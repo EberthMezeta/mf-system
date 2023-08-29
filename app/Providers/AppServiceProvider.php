@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Src\Families\Application\Contracts\FamilyCreateInterface;
 use Src\Families\Application\Contracts\FamilyReadInterface;
+use Src\Families\Application\Contracts\FamilyUpdateInterface;
+use Src\Families\Application\Contracts\FamilyDeleteInterface;
 use Src\Families\Application\UseCases\CreateFamilyUseCase;
 use Src\Families\Application\UseCases\DeleteFamilyUseCase;
 use Src\Families\Application\UseCases\ReadFamilyUseCase;

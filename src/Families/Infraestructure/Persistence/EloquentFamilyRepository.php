@@ -14,12 +14,12 @@ class EloquentFamilyRepository implements FamilyRepositoryInterface
 
     public function read(int $id)
     {
-        return Family::find($id);
+        return Family::findOrFail($id);
     }
 
     public function update(int $id, array $data)
     {
-        $family = Family::find($id);
+        $family = Family::findOrFail($id);
         if ($family) {
             $family->update($data);
         }
@@ -28,7 +28,7 @@ class EloquentFamilyRepository implements FamilyRepositoryInterface
 
     public function delete(int $id)
     {
-        $family = Family::find($id);
+        $family = Family::findOrFail($id);
         if ($family) {
             $family->delete();
         }

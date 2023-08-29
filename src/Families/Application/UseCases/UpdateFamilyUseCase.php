@@ -2,18 +2,20 @@
 namespace Src\Families\Application\UseCases;
 
 use Src\Families\Application\Contracts\FamilyUpdateInterface;
-
+use Src\Families\Domain\Repository\FamilyRepositoryInterface;
 class UpdateFamilyUseCase
 {
-    protected $familyUpdateService;
-
-    public function __construct(FamilyUpdateInterface $familyUpdateService)
+    protected $repository;
+    public function __construct(FamilyRepositoryInterface $repository)
     {
-        $this->familyUpdateService = $familyUpdateService;
+        $this->repository = $repository;
     }
-
-    public function execute(int $id, array $data)
+    public function update(int $id, array $data)
     {
-        return $this->familyUpdateService->update($id, $data);
+        if (empty($data['nombre'])) {
+            throw new \InvalidArgumentException('El campo "nombre" es obligatorio.');
+        }
+
+        return $this->repository->update($id, $data);
     }
 }

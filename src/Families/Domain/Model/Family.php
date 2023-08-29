@@ -13,10 +13,10 @@ class Family extends Model
     protected $fillable = ['nombre', 'comentarios'];
 
     // Mapeo de nombres de atributos en inglés
-    protected $attributes = [
-        'nombre' => 'name',
-        'comentarios' => 'comments',
-    ];
+    //protected $attributes = [
+   //     'nombre' => 'name',
+   //     'comentarios' => 'comments',
+   // ];
 
 
 
