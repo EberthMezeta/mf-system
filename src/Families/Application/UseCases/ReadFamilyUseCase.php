@@ -1,19 +1,21 @@
 <?php
+
 namespace Src\Families\Application\UseCases;
 
 use Src\Families\Application\Contracts\FamilyReadInterface;
+use Src\Families\Domain\Repository\FamilyRepositoryInterface;
 
-class ReadFamilyUseCase
+class ReadFamilyUseCase implements FamilyReadInterface
 {
-    protected $familyReadService;
+    protected $repository;
 
-    public function __construct(FamilyReadInterface $familyReadService)
+    public function __construct(FamilyRepositoryInterface $repository)
     {
-        $this->familyReadService = $familyReadService;
+        $this->repository = $repository;
     }
 
-    public function execute(int $id)
+    public function read(int $id)
     {
-        return $this->familyReadService->read($id);
+        return $this->repository->read($id);
     }
 }

@@ -1,8 +1,10 @@
 <?php
+
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Src\Families\Application\Contracts\FamilyCreateInterface;
 use Src\Families\Domain\Model\Family;
-use Tests\TestCase;
+
+
 
 uses(RefreshDatabase::class);
 
@@ -12,6 +14,7 @@ it('can create a family', function () {
         'nombre' => 'Nombre de la Familia',
         'comentarios' => 'Comentarios de la Familia',
     ];
+
 
     $familyCreateService = app(FamilyCreateInterface::class);
 
@@ -30,8 +33,6 @@ it('Create Family Scenery: Empty Data', function () {
 it('Create Family scenery: Invalid Data', function () {
 
     $this->assertTrue(true);
-
-
 });
 
 it('Delete Family scenary: delete an existing family ', function () {

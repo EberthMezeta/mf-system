@@ -3,19 +3,19 @@
 namespace Src\Families\Application\UseCases;
 
 use Src\Families\Application\Contracts\FamilyCreateInterface;
+use Src\Families\Domain\Repository\FamilyRepositoryInterface;
 
-
-class CreateFamilyUseCase
+class CreateFamilyUseCase implements FamilyCreateInterface
 {
-    protected $familyCreateService;
+    protected $repository;
 
-    public function __construct(FamilyCreateInterface $familyCreateService)
+    public function __construct(FamilyRepositoryInterface $repository)
     {
-        $this->familyCreateService = $familyCreateService;
+        $this->repository = $repository;
     }
 
-    public function execute(array $data)
+    public function create(array $data)
     {
-        return $this->familyCreateService->create($data);
+        return $this->repository->create($data);
     }
 }
