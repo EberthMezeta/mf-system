@@ -25,6 +25,30 @@ use Src\Brands\Application\UseCases\DeleteBrandUseCase;
 use Src\Brands\Application\UseCases\UpdateBrandUseCase;
 use Src\Brands\Infraestructure\Persistence\EloquentBrandRepository;
 use Src\Brands\Domain\Repository\BrandRepositoryInterface;
+use Src\CatalogeEquivalences\Application\Contracts\CatalogeEquivalenceCreateInterface;
+use Src\CatalogeEquivalences\Application\Contracts\CatalogeEquivalenceDeleteInterface;
+use Src\CatalogeEquivalences\Application\Contracts\CatalogeEquivalenceUpdateInterface;
+use Src\CatalogeEquivalences\Application\UseCases\CreateCatalogeEquivalenceUseCase;
+use Src\CatalogeEquivalences\Application\UseCases\DeleteCatalogeEquivalenceUseCase;
+use Src\CatalogeEquivalences\Application\UseCases\UpdateCatalogeEquivalenceUseCase;
+use Src\CatalogeEquivalences\Domain\Repository\CatalogeEquivalenceRepositoryInterface;
+use Src\CatalogeEquivalences\Infraestructure\Persistence\EloquentCatalogeEquivalenceRepository;
+use Src\CatalogeProducts\Application\Contracts\CatalogeProductCreateInterface;
+use Src\CatalogeProducts\Application\Contracts\CatalogeProductDeleteInterface;
+use Src\CatalogeProducts\Application\Contracts\CatalogeProductUpdateInterface;
+use Src\CatalogeProducts\Application\UseCases\CreateCatalogeProductUseCase;
+use Src\CatalogeProducts\Application\UseCases\DeleteCatalogeProductUseCase;
+use Src\CatalogeProducts\Application\UseCases\UpdateCatalogeProductUseCase;
+use Src\CatalogeProducts\Domain\Repository\CatalogeProductRepositoryInterface;
+use Src\CatalogeProducts\Infraestructure\Persistence\EloquentCatalogeProductRepository;
+use Src\Packaging\Application\Contracts\PackagingCreateInterface;
+use Src\Packaging\Application\Contracts\PackagingDeleteInterface;
+use Src\Packaging\Application\Contracts\PackagingUpdateInterface;
+use Src\Packaging\Application\UseCases\CreatePackagingUseCase;
+use Src\Packaging\Application\UseCases\DeletePackagingUseCase;
+use Src\Packaging\Application\UseCases\UpdatePackagingUseCase;
+use Src\Packaging\Domain\Repository\PackagingRepositoryInterface;
+use Src\Packaging\Infraestructure\Persistence\EloquentPackagingRepository;
 use Src\Presentations\Application\Contracts\PresentationCreateInterface;
 use Src\Presentations\Application\Contracts\PresentationDeleteInterface;
 use Src\Presentations\Application\Contracts\PresentationUpdateInterface;
@@ -122,6 +146,26 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ProductUpdateInterface::class, UpdateProductUseCase::class);
 
         $this->app->bind(ProductRepositoryInterface::class,EloquentProductRepository::class);
+
+        $this->app->bind(CatalogeProductCreateInterface::class, CreateCatalogeProductUseCase::class);
+        $this->app->bind(CatalogeProductDeleteInterface::class, DeleteCatalogeProductUseCase::class);
+        $this->app->bind(CatalogeProductUpdateInterface::class, UpdateCatalogeProductUseCase::class);
+
+        $this->app->bind(CatalogeProductRepositoryInterface::class,EloquentCatalogeProductRepository::class);
+
+
+        $this->app->bind(PackagingCreateInterface::class, CreatePackagingUseCase::class);
+        $this->app->bind(PackagingDeleteInterface::class, DeletePackagingUseCase::class);
+        $this->app->bind(PackagingUpdateInterface::class, UpdatePackagingUseCase::class);
+
+        $this->app->bind(PackagingRepositoryInterface::class,EloquentPackagingRepository::class);
+
+
+        $this->app->bind(CatalogeEquivalenceCreateInterface::class, CreateCatalogeEquivalenceUseCase::class);
+        $this->app->bind(CatalogeEquivalenceDeleteInterface::class, DeleteCatalogeEquivalenceUseCase::class);
+        $this->app->bind(CatalogeEquivalenceUpdateInterface::class, UpdateCatalogeEquivalenceUseCase::class);
+
+        $this->app->bind(CatalogeEquivalenceRepositoryInterface::class,EloquentCatalogeEquivalenceRepository::class);
 
     }
 
